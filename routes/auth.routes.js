@@ -4,6 +4,8 @@ const router = new Router();
 const mongoose = require("mongoose");
 const bcryptjs = require('bcryptjs');
 const User = require('../models/User.model');
+const {isLoggedIn, isLoggedOut} = require('../middlewares/route-guard-middleware')
+
 
 // GET route ==> to display the log-up form to users
 router.get('/', (req, res) => {
@@ -55,18 +57,19 @@ router.post('/', async (req, res) => {
 
 router.post("/log-in", async (req, res) => {
     const currentUser = req.body;
+    const checkedUser = await User.findOne({email: currentUser.email.toLowerCase()})
     try {
-        const checkedUser = await User.findOne({email: currentUser.email.toLowerCase()})
-        console.log("currentUser:", currentUser.password);
-        console.log("checkedUser:", checkedUser.password);
+        
+        // console.log("currentUser:", currentUser.password);
+        // console.log("checkedUser:", checkedUser.hashedPassword);
         if (checkedUser) {
             // If User exists
             if (bcryptjs.compareSync(currentUser.password, checkedUser.password)) {
                 // If User exists and Password match
                 const loggedUser = {...checkedUser._doc}
                 delete loggedUser.hashedPassword;
-                req.session.user = loggedUser;
-                res.render("food", { errorMessage: "" }); // Needs to be created
+                req.session.user = loggedUser; 
+                res.render("food", { errorMessage: "" });
             } else {
                 // If User exists but Password does not match
                 console.log("Password is incorrect");
@@ -82,5 +85,24 @@ router.post("/log-in", async (req, res) => {
         res.render("auth/log-in", { errorMessage: error.message });
     }
 })
-  
+
+
+// GET /logout
+router.get("/logout", isLoggedIn, (req, res) => {
+  // Delete the session from the sessions collection
+  // This automatically invalidates the future request with the same cookie
+  req.session.destroy((err) => {
+    if (err) {
+      return res.render("error");
+    }
+
+    // If session was deleted successfully redirect to the home page.
+    res.redirect("/ingredients");
+  });
+});
+
+
+
+
+
 module.exports = router;

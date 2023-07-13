@@ -1,0 +1,21 @@
+<div id="form">
+    <h2>Login</h2>
+    <form action="/log-in" method="POST">
+  
+      <label> Email
+        <input type="text" name="email" placeholder="ironhacker@gmail.com" />
+      </label>
+  
+      <label> Password
+        <input type="password" name="password" placeholder="********" />
+      </label>
+  
+      <button type="submit">Log-in</button>
+  
+      <%#!-- error message will be added here --%>
+      <% if(errorMessage) { %>
+      <p class="error" style="color: red;"><%= errorMessage %></p>
+      <% } %>    
+    </form>
+  </div>
+  

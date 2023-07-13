@@ -21,8 +21,8 @@ const projectName = 'Ironhack-Project2-Nutrition'
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`
 
 // 👇 Start handling routes here
-const indexRoutes = require('./routes/index.routes')
-app.use('/', indexRoutes)
+const authorizerPage = require('./routes/auth.routes')
+app.use('/', authorizerPage)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app)

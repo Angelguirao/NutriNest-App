@@ -12,8 +12,13 @@ router.get('/', async(req, res) => {
 
 router.post('/', async(req, res) => {
     try {
-        const data = req.body;
-        const newIngredient = await Ingredient.create(data)
+        const {name, kcal100g, protein, fat, carbs} = req.body
+        const macros100g = [{protein, fat, carbs}]
+        const newIngredient = await Ingredient.create({
+            name,
+            kcal100g,
+            macros100g,
+        })
         res.redirect('/ingredients')
     }
     catch(err) {console.log(err)}

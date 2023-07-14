@@ -6,7 +6,7 @@
         <% allIngredients.forEach(ingredient => { %>
             <div class="ingredientCard">
                 <h2>Name: <%= ingredient.name  %> </p>
-                <img src="<%= ingredient.photo %>" alt="<%= ingredient.name %>"  />
+                <img src="<%= ingredient.photo %>" />
                 <h3>Kcal / 100g : <%= ingredient.kcal100g  %> </p>
                 <h3>Macros / 100g :</h3>
                 <ul>
@@ -33,13 +33,13 @@
                 <input type="number" name="kcal100g" required>
               
                 <label for="protein">Protein per 100g:</label>
-                <input type="number" name="macros100g[0][protein]" required>
+                <input type="number" name="protein" required>
               
                 <label for="carbs">Carbs per 100g:</label>
-                <input type="number" name="macros100g[0][carbs]" required>
+                <input type="number" name="carbs" required>
               
                 <label for="fat">Fat per 100g:</label>
-                <input type="number" name="macros100g[0][fat]" required>
+                <input type="number" name="fat" required>
               
                 <button type="submit">Add Ingredient</button>
               </form>

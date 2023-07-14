@@ -9,7 +9,7 @@ const isLoggedOut = (req, res, next) => {
   // redirects the user to the home page
   const isLoggedIn = (req, res, next) => {
     if (req.session.user) {
-      return res.redirect('/food')
+      return res.redirect('/ingredients')
     }
     next()
   }

@@ -1,1 +1,19 @@
 <h1>Ingredients</h1>
+
+<div class="ingredientCard">
+    <h3>
+        <% allIngredients.forEach(ingredient => { %>
+         <%= ingredient.name %>
+         <img src="<%= ingredient.photo %>" alt=""> 
+         <%= ingredient.kcal100g %>
+         <%= ingredient.macros100g %>
+    <!-- Investigar como meter imágenes y como meter los macros -->
+        <% }) %>
+    </h3>
+</div>
+
+
+
+
+
+

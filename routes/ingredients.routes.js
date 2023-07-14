@@ -5,9 +5,13 @@ const bcryptjs = require('bcryptjs');
 const Ingredient = require('../models/Ingredient.model');
 
 
-router.get('/', (req, res) => {
-    res.render('ingredients')
+router.get('/', async(req, res) => {
+    const allIngredients = await Ingredient.find()
+    res.render("ingredients", {allIngredients})
+    console.log(allIngredients);
 })
+
+
 
 
 

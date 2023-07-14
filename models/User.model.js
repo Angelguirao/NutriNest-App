@@ -18,7 +18,28 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
-    }
+    },
+    img: {
+      type: String,
+      trim: true,
+      required: true,
+    },
+    age: {
+      type: Number,
+      trim: true
+    },
+    gender: {
+        type: Number,
+        trim: true
+      },
+    weight: {
+        type: Number,
+        trim: true
+      },
+    height: {
+        type: Number,
+        trim: true
+      },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    

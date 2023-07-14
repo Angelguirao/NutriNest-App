@@ -11,7 +11,7 @@ const ingredientSchema = new Schema(
     },
     photo: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
     kcal100g: {

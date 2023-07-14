@@ -22,12 +22,12 @@
 
     <div class="rightContainer">
         <div class="form">
-            <form action="/ingredients" method="POST">
+            <form action="/ingredients" method="POST" enctype="multipart/form-data">
                 <label for="name">Name:</label>
-                <input type="text" name="name" required>
+                <input type="text" name="name" >
               
                 <label for="photo">Photo:</label>
-                <input type="text" name="photo">
+                <input type="file" name="photo" accept="image/png, image/jpg">
               
                 <label for="kcal100g">Calories per 100g:</label>
                 <input type="number" name="kcal100g" required>

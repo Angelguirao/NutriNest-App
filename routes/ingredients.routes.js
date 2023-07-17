@@ -51,19 +51,4 @@ router.post('/:ingredientId/delete', async (req, res, next) => {
   })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = router;

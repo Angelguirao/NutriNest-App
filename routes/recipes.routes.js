@@ -27,11 +27,7 @@ router.get('/new', isLoggedIn, async (req, res, next) => {
  
   })
 
-
-
-  
-
-  router.post('/new', uploader.single('photo'), async (req, res, next) => {
+router.post('/new', uploader.single('photo'), async (req, res, next) => {
     const { name, duration, instructions, totalCalories, protein, carbs, fat, ingredients } = req.body;
     const photo = req.file.path;
   

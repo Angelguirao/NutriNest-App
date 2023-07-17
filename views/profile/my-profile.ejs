@@ -24,11 +24,7 @@
 
     <form action="/profile" method="POST", enctype="multipart/form-data">
         <label> Image:
-            <% if (!user.img) { %>
-                <img id="profile-image" src="https://img.freepik.com/free-icon/user_318-563642.jpg?w=360" alt="profile-image">
-            <% } else { %>
-                <img id="profile-image" src="<%= user.img %>" alt="profile-image">
-            <% } %>
+            <img id="profile-image" src="<%= user.img %>" alt="profile-image">
             <input type="file" name="img" id="image-upload" accept="image/jpg, image/png">
         </label>
         <button type="submit">Save</button>

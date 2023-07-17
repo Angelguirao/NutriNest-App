@@ -14,14 +14,37 @@ const recipeSchema = new Schema(
       required: true,
       trim: true,
     },
-    kcalTotales: {
+    ingredients: [{
+      type: Schema.Types.ObjectId, 
+      ref: "Ingredient",
+     }],
+    
+     duration: {
+      type: Number,
+      min: 0,
+    },
+    instructions: {
+      type: [String],
+      required: true,
+    },  
+    totalCalories: {
       type: Number,
       required: true,
     },
-    ingredients: [{
-         type: Schema.Types.ObjectId, 
-         ref: "Ingredient"
-        }],
+    totalMacros: {
+      protein: {
+        type: Number,
+        required: true,
+      },
+      carbs: {
+        type: Number,
+        required: true,
+      },
+      fat: {
+        type: Number,
+        required: true,
+      },
+    }, 
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    

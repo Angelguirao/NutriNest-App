@@ -1,0 +1,19 @@
+
+<h1><%= recipe.name %></h1>
+<ul>
+  <% recipe.ingredients.forEach(ingredient => { %>
+    <li><%= ingredient.name %></li>
+  <% }) %>
+</ul>
+
+
+
+
+
+<img src="<%= recipe.photo %>" alt="" style="height: 100px; width: auto">
+
+<a href="/recipes/<%- recipe._id %>/update">Update</a>
+<form method="POST" action="/recipes/<%- recipe._id %>/delete">
+  <!-- <input name="recipeId" value="<%- recipe._id %>" hidden /> -->
+  <button type="submit">Delete</button>
+</form>

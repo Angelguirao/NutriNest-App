@@ -1,0 +1,16 @@
+<h1><%= ingredient.name %></h1>
+<ul>
+    <% ingredient.macros100g.forEach(function(macros) { %>
+        <li> <h4>Protein: <%= macros.protein %>g</p></li>
+        <li> <h4>Carbs: <%= macros.carbs %>g</p></li>
+        <li> <h4>Fat: <%= macros.fat %>g</p></li>
+        <% }) %>
+</ul>
+
+
+<img src="<%= ingredient.photo %>" alt="" style="height: 100px; width: auto">
+
+<form method="POST" action="/ingredients/<%- ingredient._id %>/delete">
+  <!-- <input name="recipeId" value="<%- ingredient._id %>" hidden /> -->
+  <button type="submit">Delete</button>
+</form>

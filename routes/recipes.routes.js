@@ -59,7 +59,14 @@ router.get('/new', isLoggedIn, async (req, res, next) => {
 /* GET update recipe page */
 router.get('/:recipeId/update', async (req, res, next) => {
     const recipe = await Recipe.findById(req.params.recipeId)
-    res.render('recipes/update', { recipe })
+    const ingredientsList = await Ingredient.find()
+
+    try {
+      res.render('recipes/update', { recipe, ingredientsList })
+
+    }
+
+    catch(err) {console.log(err)}
   })
   
 
@@ -68,6 +75,7 @@ router.get('/:recipeId/update', async (req, res, next) => {
     console.log(req.body, req.params)
     try {
       await Recipe.findByIdAndUpdate(req.params.recipeId, req.body)
+      .populate('ingredients')
       res.redirect(`/recipes/${req.params.recipeId}`)
     } catch (error) {
       console.log(error)
@@ -76,15 +84,13 @@ router.get('/:recipeId/update', async (req, res, next) => {
 
   /* GET one recipe page */
 router.get('/:recipeId', isLoggedIn, async (req, res, next) => {
-                              //Solo encontrar ingredientes dentro de las recetas
+ //Solo encontrar ingredientes dentro de las recetas
   console.log(req.params.recipeId)
   const recipeId = req.params.recipeId
 
     try {
       const recipe = await Recipe.findById(recipeId)
         .populate('ingredients')
-
-       
 
       console.log(recipe)
 

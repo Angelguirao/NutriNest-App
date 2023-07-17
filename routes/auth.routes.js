@@ -18,12 +18,12 @@ router.get('/log-in', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { name, email, password } = req.body;
-    if (!name || !email || !password) {
-        res.render('auth/sign-up', { errorMessage: 'All fields are mandatory. Please provide your name, email and password.' });
+    const { name, lastname, email, password } = req.body;
+    if (!name || !lastname || !email || !password) {
+        res.render('auth/sign-up', { errorMessage: 'All fields are mandatory. Please provide your name, lastname, email and password.' });
         return;
       }
-    
+
     //const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
     //if (!regex.test(password)) {
     //    res
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
       delete payload.password;
       const salt = bcryptjs.genSaltSync(10);
       const hashedPassword = bcryptjs.hashSync(req.body.password, salt);
-      const userFromDB = await User.create({ name: name, email: email, password: hashedPassword });
+      const userFromDB = await User.create({ name: name, lastname: lastname, email: email, password: hashedPassword });
       res.render('auth/log-in', { errorMessage: "" });
       console.log('Newly created user is: ', userFromDB);
       // Send response, etc.
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
             res.status(500).render('auth/sign-up', { errorMessage: error.message });
           } else if (error.code === 11000) {
             res.status(500).render('auth/sign-up', {
-               errorMessage: 'Username needs to be unique. Username is already used.'
+               errorMessage: "Email is already in use. Please try logging-in or use a different email."
             });
           } else {
             console.log(error);
@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
   });
   
 
-router.post("/log-in", async (req, res) => {
+router.post("/log-in", isLoggedOut, async (req, res) => {
     const currentUser = req.body;
     const checkedUser = await User.findOne({email: currentUser.email.toLowerCase()})
     try {
@@ -88,7 +88,7 @@ router.post("/log-in", async (req, res) => {
 
 
 // GET /logout
-router.get("/logout", isLoggedIn, (req, res) => {
+router.get("/log-out", isLoggedIn, (req, res) => {
   // Delete the session from the sessions collection
   // This automatically invalidates the future request with the same cookie
   req.session.destroy((err) => {
@@ -96,8 +96,8 @@ router.get("/logout", isLoggedIn, (req, res) => {
       return res.render("error");
     }
 
-    // If session was deleted successfully redirect to the home page.
-    res.redirect("/ingredients");
+    // If session was deleted successfully redirect to the sign-in page.
+    res.redirect("/log-in");
   });
 });
 

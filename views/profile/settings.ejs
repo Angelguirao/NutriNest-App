@@ -1,0 +1,30 @@
+<div id="form">
+    <h2>Login</h2>
+    <form action="/profile/settings" method="POST">
+
+      <label> Email:
+        <%= user.email %>
+        <input type="text" name="email" placeholder="Enter new email..." />
+      </label>
+
+      <button type="submit">Save</button>
+  
+      <% if(errorMessage) { %>
+      <p class="error" style="color: red;"><%= errorMessage %></p>
+      <% } %>
+    </form>
+
+    <form action="/profile/settings" method="POST">
+
+      <label> Password:
+        <input type="password" name="current_password" placeholder="Enter Current Password..." />
+        <input type="password" name="new_password" placeholder="Enter New Password..." />
+      </label>
+
+      <button type="submit">Save</button>
+  
+      <% if(errorMessage) { %>
+      <p class="error" style="color: red;"><%= errorMessage %></p>
+      <% } %>    
+    </form>
+</div>

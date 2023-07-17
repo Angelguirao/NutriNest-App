@@ -11,11 +11,6 @@
   <body>
     <nav>
       <ul style="list-style: none; display: flex; gap: 25px">
-          <a href="/">Sign-up</a>
-        </li>
-        <li>
-          <a href="/log-in">Log-in</a>
-        </li>
         <li>
           <a href="/ingredients">Ingredients</a>
         </li>
@@ -23,7 +18,15 @@
           <a href="/recipes">Recipes</a>
         </li>
         <li>
-          <a href="/profile">Profile</a>
+          <a href="/recipes/favorite">My Favorite Recipes</a>
+        </li>
+        <li>
+          <select onchange="window.location.href=this.value">
+            <option value="/"> Name </option>
+            <option value="/profile">My Profile</option>
+            <option value="/profile/settings">Settings</option>
+            <option value="/log-out">Log-out</option>
+          </select>
         </li>
       </ul>
     </nav>

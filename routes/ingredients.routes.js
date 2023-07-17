@@ -1,11 +1,10 @@
 const { Router } = require('express');
 const router = new Router();
-const mongoose = require("mongoose");
-const bcryptjs = require('bcryptjs');
 const Ingredient = require('../models/Ingredient.model');
 const uploader = require('../config/cloudinary.config.js')
+const {isLoggedIn} = require('../middlewares/route-guard-middleware')
 
-router.get('/', async(req, res) => {
+router.get('/', isLoggedIn, async(req, res) => {
     const allIngredients = await Ingredient.find()
     res.render("ingredients", {allIngredients})
 })
@@ -22,6 +21,8 @@ router.post('/', uploader.single('photo'), async(req, res) => {
             photo,
         })
         res.redirect('/ingredients')
+        console.log('Newly created ingredient: ', newIngredient);
+
     }
     catch(err) {console.log(err)}
     

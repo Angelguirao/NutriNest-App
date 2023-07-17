@@ -1,6 +1,7 @@
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require('multer');
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_KEY,
@@ -10,6 +11,7 @@ const storage = new CloudinaryStorage({
   // cloudinary: cloudinary,
   cloudinary,
   folder: 'Ironhack-Project2-Nutrition',
+
   allowed_formats: ['jpg', 'png'],
   filename: function (req, res, cb) {
     cb(null, res.originalname);
@@ -17,4 +19,5 @@ const storage = new CloudinaryStorage({
      // The name of the folder in cloudinary
     // resource_type: 'raw' => this is in case you want to upload other type of files, not just images
 });
+
 module.exports = multer({ storage });

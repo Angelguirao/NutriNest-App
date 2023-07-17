@@ -22,8 +22,6 @@ const recipeSchema = new Schema(
          type: Schema.Types.ObjectId, 
          ref: "Ingredient"
         }],
-
-    
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    

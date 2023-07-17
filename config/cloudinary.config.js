@@ -1,9 +1,10 @@
+
 // config/cloudinary.config.js
  
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require('multer');
- 
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_KEY,
@@ -14,6 +15,7 @@ const storage = new CloudinaryStorage({
   // cloudinary: cloudinary,
   cloudinary,
   folder: 'ironHack-nutrition-project',
+
   allowed_formats: ['jpg', 'png'],
   filename: function (req, res, cb) {
     cb(null, res.originalname);
@@ -23,4 +25,5 @@ const storage = new CloudinaryStorage({
   
 });
  
+
 module.exports = multer({ storage });

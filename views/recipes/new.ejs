@@ -1,45 +1,40 @@
-<h1>Create New Recipe</h1>
+<h1 class="recipe-heading">Create New Recipe</h1>
 
-<form action="/recipes/new" method="POST" style="display: flex; flex-direction: column; align-items: center;" enctype="multipart/form-data">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required>
-  <br>
+<div class="recipe-form-container">
 
-  <label for="photo">Photo:</label>
-  <input type="file" id="photo" name="photo" accept="image/png, jpg">
-  <br>
+  <form action="/recipes/new" method="POST" enctype="multipart/form-data">
+    <label for="recipe-name" class="recipe-label">Name:</label>
+    <input type="text" id="recipe-name" name="name" class="recipe-input" required>
 
-  <label for="ingredients">Ingredients:</label>
-      <select name="ingredients" id="ingredients" multiple required>
-        <!-- Populate the select dropdown with available ingredients -->
-        <% ingredientsList.forEach((ingredient) => { %>
-          <option value="<%= ingredient._id %>"><%= ingredient.name %></option>
-        <% }) %>
-      </select>
+    <label for="recipe-photo" class="recipe-label">Photo:</label>
+    <input type="file" id="recipe-photo" name="photo" accept="image/png, jpg" class="recipe-input">
 
-  <label for="duration">Duration (minutes):</label>
-  <input type="number" id="duration" name="duration" min="0">
-  <br>
+    <label for="recipe-ingredients" class="recipe-label">Ingredients:</label>
+    <select name="ingredients" id="recipe-ingredients" multiple required class="recipe-input">
+      <!-- Populate the select dropdown with available ingredients -->
+      <% ingredientsList.forEach((ingredient) => { %>
+      <option value="<%= ingredient._id %>"><%= ingredient.name %></option>
+      <% }) %>
+    </select>
 
-  <label for="instructions">Instructions:</label>
-  <textarea id="instructions" name="instructions" required></textarea>
-  <br>
+    <label for="recipe-duration" class="recipe-label">Duration (minutes):</label>
+    <input type="number" id="recipe-duration" name="duration" min="0" class="recipe-input">
 
-  <label for="totalCalories">Total Calories (kcal):</label>
-  <input type="number" id="totalCalories" name="totalCalories" required>
-  <br>
+    <label for="recipe-instructions" class="recipe-label">Instructions:</label>
+    <textarea id="recipe-instructions" name="instructions" class="recipe-input" required></textarea>
 
-  <label for="protein">Protein (g):</label>
-  <input type="number" id="protein" name="protein" required>
-  <br>
+    <label for="recipe-totalCalories" class="recipe-label">Total Calories (kcal):</label>
+    <input type="number" id="recipe-totalCalories" name="totalCalories" required class="recipe-input">
 
-  <label for="carbs">Carbs (g):</label>
-  <input type="number" id="carbs" name="carbs" required>
-  <br>
+    <label for="recipe-protein" class="recipe-label">Protein (g):</label>
+    <input type="number" id="recipe-protein" name="protein" required class="recipe-input">
 
-  <label for="fat">Fat (g):</label>
-  <input type="number" id="fat" name="fat" required>
-  <br>
+    <label for="recipe-carbs" class="recipe-label">Carbs (g):</label>
+    <input type="number" id="recipe-carbs" name="carbs" required class="recipe-input">
 
-  <button type="submit">Create Recipe</button>
-</form>
+    <label for="recipe-fat" class="recipe-label">Fat (g):</label>
+    <input type="number" id="recipe-fat" name="fat" required class="recipe-input">
+
+    <button type="submit" class="recipe-submit-button">Create Recipe</button>
+  </form>
+</div>

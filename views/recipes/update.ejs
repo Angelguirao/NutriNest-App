@@ -1,21 +1,40 @@
-<h1>Update Recipe</h1>
 
-<form method="POST" action="/recipes/<%- recipe._id %>/update" style="display: flex; flex-direction: column; align-items: center;">
-  <label>Name: <input name="name" value="<%= recipe.name %>"></label>
-  <label>Photo: <input type="file" name="photo" accept="image/*"></label>
-  <label for="ingredients">Ingredients:</label>
-  <select name="ingredients" id="ingredients" multiple required>
-    <!-- Populate the select dropdown with available ingredients -->
-    <% ingredientsList.forEach((ingredient) => { %>
-      <option value="<%= ingredient._id %>"><%= ingredient.name %></option>
-    <% }) %>
-  </select>
-  <label>Duration: <input type="number" name="duration" value="<%= recipe.duration %>"></label>
-  <label>Instructions: <input name="instructions" value="<%= recipe.instructions %>"></label>
-  <label>Total Calories: <input type="number" name="totalCalories" value="<%= recipe.totalCalories %>"></label>
-  <label>Protein: <input type="number" name="totalMacros.protein" value="<%= recipe.totalMacros.protein %>"></label>
-  <label>Carbs: <input type="number" name="totalMacros.carbs" value="<%= recipe.totalMacros.carbs %>"></label>
-  <label>Fat: <input type="number" name="totalMacros.fat" value="<%= recipe.totalMacros.fat %>"></label>
+<h1 class="recipe-update-heading">Update Recipe</h1>
 
-  <button type="submit">Update Recipe</button>
-</form>
+<div class="recipe-update-form-container">
+  <form method="POST" action="/recipes/<%- recipe._id %>/update">
+    <label for="recipe-update-name" class="recipe-update-label">Name:</label>
+    <input type="text" id="recipe-update-name" name="name" value="<%= recipe.name %>" class="recipe-update-input">
+
+    <label for="recipe-update-photo" class="recipe-update-label">Photo:</label>
+    <input type="file" id="recipe-update-photo" name="photo" accept="image/*" class="recipe-update-input">
+
+    <label for="recipe-update-ingredients" class="recipe-update-label">Ingredients:</label>
+    <select name="ingredients" id="recipe-update-ingredients" multiple required class="recipe-update-input">
+      <!-- Populate the select dropdown with available ingredients -->
+      <% ingredientsList.forEach((ingredient) => { %>
+        <option value="<%= ingredient._id %>"><%= ingredient.name %></option>
+      <% }) %>
+    </select>
+
+    <label for="recipe-update-duration" class="recipe-update-label">Duration:</label>
+    <input type="number" id="recipe-update-duration" name="duration" value="<%= recipe.duration %>" class="recipe-update-input">
+
+    <label for="recipe-update-instructions" class="recipe-update-label">Instructions:</label>
+    <input type="text" id="recipe-update-instructions" name="instructions" value="<%= recipe.instructions %>" class="recipe-update-input">
+
+    <label for="recipe-update-totalCalories" class="recipe-update-label">Total Calories:</label>
+    <input type="number" id="recipe-update-totalCalories" name="totalCalories" value="<%= recipe.totalCalories %>" class="recipe-update-input">
+
+    <label for="recipe-update-protein" class="recipe-update-label">Protein:</label>
+    <input type="number" id="recipe-update-protein" name="totalMacros.protein" value="<%= recipe.totalMacros.protein %>" class="recipe-update-input">
+
+    <label for="recipe-update-carbs" class="recipe-update-label">Carbs:</label>
+    <input type="number" id="recipe-update-carbs" name="totalMacros.carbs" value="<%= recipe.totalMacros.carbs %>" class="recipe-update-input">
+
+    <label for="recipe-update-fat" class="recipe-update-label">Fat:</label>
+    <input type="number" id="recipe-update-fat" name="totalMacros.fat" value="<%= recipe.totalMacros.fat %>" class="recipe-update-input">
+
+    <button type="submit" class="recipe-update-submit-button">Update Recipe</button>
+  </form>
+</div>

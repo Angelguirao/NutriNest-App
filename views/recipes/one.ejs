@@ -1,19 +1,58 @@
+<div class="oneRecipe-details">
+  <h1 class="oneRecipe-name"><%= recipe.name %></h1>
 
-<h1><%= recipe.name %></h1>
-<ul>
-  <% recipe.ingredients.forEach(ingredient => { %>
-    <li><%= ingredient.name %></li>
-  <% }) %>
-</ul>
+  <% if (recipe.photo) { %>
+    <img src="<%- recipe.photo %>" alt="" class="oneRecipe-photo">
+  <% } %>
 
+  <div class="oneRecipe-field">
+    <label for="oneRecipe-ingredients" class="oneRecipe-label">
+      Ingredients:
+    </label>
+    <ul class="oneRecipe-ingredients-list">
+      <% recipe.ingredients.forEach(ingredient => { %>
+        <li class="oneRecipe-ingredient"><%= ingredient.name %></li>
+      <% }) %>
+    </ul>
+  </div>
 
+  <div class="oneRecipe-field">
+    <label for="oneRecipe-duration" class="oneRecipe-label">Duration (minutes):</label>
+    <span class="oneRecipe-value oneRecipe-duration"><%= recipe.duration %></span>
+  </div>
 
+  <div class="oneRecipe-field">
+    <label for="oneRecipe-instructions" class="oneRecipe-label">Instructions:</label>
+    <div class="oneRecipe-instructions">
+      <p><%= recipe.instructions %></p>
+    </div>
+  </div>
 
+  <div class="oneRecipe-field">
+    <label for="oneRecipe-totalCalories" class="oneRecipe-label">Total Calories (kcal):</label>
+    <span class="oneRecipe-value oneRecipe-totalCalories"><%= recipe.totalCalories %></span>
+  </div>
 
-<img src="<%= recipe.photo %>" alt="" style="height: 100px; width: auto">
+  <div class="oneRecipe-field">
+    <label for="oneRecipe-protein" class="oneRecipe-label">Protein (g):</label>
+    <span class="oneRecipe-value oneRecipe-protein"><%= recipe.totalMacros.protein %></span>
+  </div>
 
-<a href="/recipes/<%- recipe._id %>/update">Update</a>
-<form method="POST" action="/recipes/<%- recipe._id %>/delete">
-  <!-- <input name="recipeId" value="<%- recipe._id %>" hidden /> -->
-  <button type="submit">Delete</button>
-</form>
+  <div class="oneRecipe-field">
+    <label for="oneRecipe-carbs" class="oneRecipe-label">Carbs (g):</label>
+    <span class="oneRecipe-value oneRecipe-carbs"><%= recipe.totalMacros.carbs %></span>
+  </div>
+
+  <div class="oneRecipe-field">
+    <label for="oneRecipe-fat" class="oneRecipe-label">Fat (g):</label>
+    <span class="oneRecipe-value oneRecipe-fat"><%= recipe.totalMacros.fat %></span>
+  </div>
+
+  <div class="oneRecipe-update-container">
+    <a href="/recipes/<%- recipe._id %>/update" class="oneRecipe-update-button">Update</a>
+  </div>
+
+  <form method="POST" action="/recipes/<%- recipe._id %>/delete">
+    <button type="submit" class="oneRecipe-delete-button">Delete</button>
+  </form>
+</div>

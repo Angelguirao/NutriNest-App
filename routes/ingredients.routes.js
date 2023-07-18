@@ -20,7 +20,7 @@ router.post('/', uploader.single('photo'), async(req, res) => {
             macros100g,
             photo,
         })
-        res.redirect('ingredients/ingredients')
+        res.redirect('ingredients')
         console.log('Newly created ingredient: ', newIngredient);
 
     }

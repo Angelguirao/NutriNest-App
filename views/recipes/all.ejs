@@ -1,17 +1,17 @@
-<h1>All recipes</h1>
+<h1 class="all-recipes-heading">All recipes</h1>
 
-<li>
-  <a href="/recipes/new">New recipe</a>
-</li>
+<div class="recipe-list-container">
+  <a href="/recipes/new" class="new-recipe-button">Create New Recipe</a>
 
-<ul>
-  <% allRecipes.forEach(recipe => { %>
-    <li>
-      <a href="/recipes/<%- recipe._id %>"><%- recipe.name %></a>
+  <ul class="recipe-list">
+    <% allRecipes.forEach(recipe => { %>
+    <li class="recipe-item">
       <% if (recipe.photo) { %>
-        <img src="<%- recipe.photo %>" alt="Recipe Photo" style="height: 100px ">
+      <img src="<%- recipe.photo %>" alt="Recipe Photo" class="recipe-image">
       <% } %>
-      <a href="/recipes/<%- recipe._id %>" class="learn-more">Learn More</a>
+      <span class="recipe-name"><%- recipe.name %></span>
+      <a href="/recipes/<%- recipe._id %>" class="learn-more-button">Learn More</a>
     </li>
-  <% }) %>
-</ul>
+    <% }) %>
+  </ul>
+</div>

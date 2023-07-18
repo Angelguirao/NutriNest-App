@@ -1,27 +1,40 @@
-<h1>Search Results</h1>
+<div class="page-container-search">
+    <div class="container-form">
 
-<form action="/ingredients/search" method="POST">
-    <input type="text" name="name" placeholder="Search ingredients..." />
-    <button type="submit">Search</button>
-</form>
+        <h1>Search Results</h1>
+        <div class="search-form">
+            <form action="/ingredients/search" method="POST">
+                <input type="text" name="name" placeholder="Search ingredients..." />
+                <button type="submit">Search</button>
+            </form>
+            <% if (typeof error !== 'undefined') { %>
+                <p><%= error %></p>
+            <% } %> 
+        </div>
+        
+        <% if (typeof searchedIngredient !== 'undefined') { %>
+            <div class="container-single-ingredient">
+                <h1><%= searchedIngredient.name %></h1>
+                <img src="<%= searchedIngredient.photo %>" />
+        
+                <h3>Kcal / 100g : <%= searchedIngredient.kcal100g  %> </p>
+                <h3>Macros / 100g :</h3>
+                <ul>
+                <% searchedIngredient.macros100g.forEach(function(macros) { %>
+                    <li> <h4>Protein: <%= macros.protein %>g</p></li>
+                    <li> <h4>Carbs: <%= macros.carbs %>g</p></li>
+                    <li> <h4>Fat: <%= macros.fat %>g</p></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+
+    </div>
+</div>
 
 
 
-<% if (typeof searchedIngredient !== 'undefined') { %>
-    <h1><%= searchedIngredient.name %></h1>
-<img src="<%= searchedIngredient.photo %>" />
 
-<h3>Kcal / 100g : <%= searchedIngredient.kcal100g  %> </p>
-    <h3>Macros / 100g :</h3>
-    <ul>
-        <% searchedIngredient.macros100g.forEach(function(macros) { %>
-            <li> <h4>Protein: <%= macros.protein %>g</p></li>
-            <li> <h4>Carbs: <%= macros.carbs %>g</p></li>
-            <li> <h4>Fat: <%= macros.fat %>g</p></li>
-            <% }) %>
-    </ul>
-<% } %>
 
-<% if (typeof error !== 'undefined') { %>
-    <p style="color:red"><%= error %></p>
-<% } %> 
+
+

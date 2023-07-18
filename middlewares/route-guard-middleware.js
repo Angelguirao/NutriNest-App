@@ -1,6 +1,6 @@
 const isLoggedOut = (req, res, next) => {
     if (req.session.user) {
-      res.redirect('/ingredients');
+      res.redirect('/log-in');
     }
     next();
   }
@@ -9,12 +9,12 @@ const isLoggedOut = (req, res, next) => {
   // redirects the user to the home page
 const isLoggedIn = (req, res, next) => {
     if (req.session.user) {
-
       next();
+    } else {
 
-    }
     res.redirect("/log-in");
   }
+}
 
 module.exports = {
     isLoggedIn,

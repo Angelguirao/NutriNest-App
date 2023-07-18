@@ -24,11 +24,7 @@
 
     <form action="/profile" method="POST", enctype="multipart/form-data">
         <label> Image:
-            <% if (!user.img) { %>
-                <img id="profile-image" src="https://img.freepik.com/free-icon/user_318-563642.jpg?w=360" alt="profile-image">
-            <% } else { %>
-                <img id="profile-image" src="<%= user.img %>" alt="profile-image">
-            <% } %>
+            <img id="profile-image" src="<%= user.img %>" alt="profile-image">
             <input type="file" name="img" id="image-upload" accept="image/jpg, image/png">
         </label>
         <button type="submit">Save</button>
@@ -36,11 +32,11 @@
             <p class="error" style="color: red;"><%= errorMessage %></p>
         <% } %>
     </form>
-    
+
     <form action="/profile" method="POST">
         <label> Age:
             <span><%= user.age %></span>
-            <input type="text" name="age" placeholder="Change age..." />
+            <input type="number" name="age"  placeholder="Change age..." />
         </label>
         <button type="submit">Save</button>
         <% if(errorMessage) { %>
@@ -65,7 +61,7 @@
     <form action="/profile" method="POST">
         <label> Weight (kg):
             <span><%= user.weight %></span>
-            <input type="text" name="weight" placeholder="Change weight..." />
+            <input type="number" name="weight" placeholder="Change weight..." />
         </label>
         <button type="submit">Save</button>
         <% if(errorMessage) { %>
@@ -76,7 +72,7 @@
     <form action="/profile" method="POST">
         <label> Height (cm):
             <span><%= user.height %></span>
-            <input type="text" name="height" placeholder="Change height..." />
+            <input type="number" name="height" placeholder="Change height..." />
         </label>
         <button type="submit">Save</button>
         <% if(errorMessage) { %>

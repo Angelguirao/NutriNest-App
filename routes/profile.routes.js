@@ -6,7 +6,7 @@ const uploader = require("../config/cloudinary.config.js")
 const {isLoggedIn, isLoggedOut} = require('../middlewares/route-guard-middleware')
 
 
-router.get('/', async (req, res) => {
+router.get('/', isLoggedIn, async (req, res) => {
     try {
         let user = await User.findById(req.session.user._id);
         res.render('profile/my-profile', {user, errorMessage: ""});
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-router.get('/settings', async (req, res) => {
+router.get('/settings', isLoggedIn, async (req, res) => {
     try {
       let user = await User.findById(req.session.user._id);
       res.render('profile/settings', {user, errorMessage: ""});
@@ -26,13 +26,15 @@ router.get('/settings', async (req, res) => {
 
 router.post('/', uploader.single("img"), async (req, res) => {
   const newUser = req.body;
+  newUser.img = req.file.path;
   let mongoUser = await User.findById(req.session.user._id);
   
-    try {  
+    try {
       if (mongoUser) {
         mongoUser.name = newUser.name || mongoUser.name;
         mongoUser.lastname = newUser.lastname || mongoUser.lastname;
         mongoUser.age = newUser.age || mongoUser.age;
+        mongoUser.img = newUser.img || mongoUser.img;
         mongoUser.gender = newUser.gender || mongoUser.gender;
         mongoUser.weight = newUser.weight || mongoUser.weight;
         mongoUser.height = newUser.height || mongoUser.height;

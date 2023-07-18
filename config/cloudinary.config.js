@@ -10,6 +10,7 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_KEY,
   api_secret: process.env.CLOUDINARY_SECRET
 });
+
  
 const storage = new CloudinaryStorage({
   // cloudinary: cloudinary,
@@ -22,8 +23,8 @@ const storage = new CloudinaryStorage({
   }
      // The name of the folder in cloudinary
     // resource_type: 'raw' => this is in case you want to upload other type of files, not just images
+
   
 });
  
-
 module.exports = multer({ storage });

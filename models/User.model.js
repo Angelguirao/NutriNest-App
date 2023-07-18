@@ -30,7 +30,8 @@ const userSchema = new Schema(
     },
     img: {
       type: String,
-      trim: true
+      trim: true,
+      default: "https://img.freepik.com/free-icon/user_318-563642.jpg?w=360"
     },
     age: {
       type: Number,

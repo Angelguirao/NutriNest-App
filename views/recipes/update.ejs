@@ -3,6 +3,13 @@
 <form method="POST" action="/recipes/<%- recipe._id %>/update" style="display: flex; flex-direction: column; align-items: center;">
   <label>Name: <input name="name" value="<%= recipe.name %>"></label>
   <label>Photo: <input type="file" name="photo" accept="image/*"></label>
+  <label for="ingredients">Ingredients:</label>
+  <select name="ingredients" id="ingredients" multiple required>
+    <!-- Populate the select dropdown with available ingredients -->
+    <% ingredientsList.forEach((ingredient) => { %>
+      <option value="<%= ingredient._id %>"><%= ingredient.name %></option>
+    <% }) %>
+  </select>
   <label>Duration: <input type="number" name="duration" value="<%= recipe.duration %>"></label>
   <label>Instructions: <input name="instructions" value="<%= recipe.instructions %>"></label>
   <label>Total Calories: <input type="number" name="totalCalories" value="<%= recipe.totalCalories %>"></label>

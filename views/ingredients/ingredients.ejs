@@ -5,7 +5,7 @@
     <div class="leftContainer">
         <% allIngredients.forEach(ingredient => { %>
             <div class="ingredientCard">
-                <h2>Name: <%= ingredient.name  %> </p>
+                <h2><a href="/ingredients/<%= ingredient._id %>">Name: <%= ingredient.name  %></a> </h2>
                 <img src="<%= ingredient.photo %>" />
                 <h3>Kcal / 100g : <%= ingredient.kcal100g  %> </p>
                 <h3>Macros / 100g :</h3>

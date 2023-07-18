@@ -1,13 +1,12 @@
 const { Router } = require('express');
 const router = new Router();
-const mongoose = require("mongoose");
-const bcryptjs = require('bcryptjs');
 const Ingredient = require('../models/Ingredient.model');
 const uploader = require('../config/cloudinary.config.js')
+const {isLoggedIn} = require('../middlewares/route-guard-middleware')
 
-router.get('/', async(req, res) => {
+router.get('/', isLoggedIn, async(req, res) => {
     const allIngredients = await Ingredient.find()
-    res.render("ingredients", {allIngredients})
+    res.render("ingredients/ingredients", {allIngredients})
 })
 
 router.post('/', uploader.single('photo'), async(req, res) => {
@@ -21,29 +20,35 @@ router.post('/', uploader.single('photo'), async(req, res) => {
             macros100g,
             photo,
         })
-        res.redirect('/ingredients')
+        res.redirect('ingredients/ingredients')
+        console.log('Newly created ingredient: ', newIngredient);
+
     }
     catch(err) {console.log(err)}
     
 })
 
+router.get('/:ingredientId', isLoggedIn, async(req, res) => {
+    const ingredientId = req.params.ingredientId;
+    try {
+        const ingredient = await Ingredient.findById(ingredientId)
+        res.render('ingredients/one', {ingredient})
+    }
+    catch (error) {
+        console.log(error)
+    }
 
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+router.post('/:ingredientId/delete', async (req, res, next) => {
+    console.log(req.params)
+    try {
+      await Ingredient.findByIdAndDelete(req.params.ingredientId)
+      res.redirect('/ingredients')
+    } catch (error) {
+      console.log(error)
+    }
+  })
 
 
 module.exports = router;

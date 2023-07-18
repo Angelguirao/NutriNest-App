@@ -4,6 +4,8 @@ const Ingredient = require('../models/Ingredient.model');
 const uploader = require('../config/cloudinary.config.js')
 const {isLoggedIn} = require('../middlewares/route-guard-middleware')
 
+
+//All Ingredients
 router.get('/', isLoggedIn, async(req, res) => {
     const allIngredients = await Ingredient.find()
     res.render("ingredients/ingredients", {allIngredients})
@@ -36,10 +38,12 @@ router.get('/search', async (req, res) => {
 router.post('/search', async (req, res) => {
     console.log(req.body)
     const {name} = req.body
-
     try {
-        const searchedIngredient = await Ingredient.findOne({name})
+        const searchedIngredient = await Ingredient.findOne({ name })
+        if(searchedIngredient) {
+            console.log(searchedIngredient)
         res.render('ingredients/search-results', {searchedIngredient})
+        } else {res.render('ingredients/search-results', {error: "This ingridient doesn't exist"})}
 
     }
     catch(err) {console.log(err)}
@@ -47,7 +51,7 @@ router.post('/search', async (req, res) => {
 
 
 
-
+//One ingredient
 router.get('/:ingredientId', isLoggedIn, async(req, res) => {
     const ingredientId = req.params.ingredientId;
     try {

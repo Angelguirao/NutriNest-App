@@ -5,7 +5,10 @@
     <button type="submit">Search</button>
 </form>
 
-<h1><%= searchedIngredient.name %></h1>
+
+
+<% if (typeof searchedIngredient !== 'undefined') { %>
+    <h1><%= searchedIngredient.name %></h1>
 <img src="<%= searchedIngredient.photo %>" />
 
 <h3>Kcal / 100g : <%= searchedIngredient.kcal100g  %> </p>
@@ -17,3 +20,8 @@
             <li> <h4>Fat: <%= macros.fat %>g</p></li>
             <% }) %>
     </ul>
+<% } %>
+
+<% if (typeof error !== 'undefined') { %>
+    <p style="color:red"><%= error %></p>
+<% } %> 

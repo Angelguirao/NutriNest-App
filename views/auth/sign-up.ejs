@@ -1,28 +1,42 @@
 <div id="form">
     <h2>Signup</h2>
-    <form action="/" method="POST">
-  
-      <label> Name
-        <input type="text" name="name" placeholder="Peter..." />
-      </label>
+    <form action="/" method="POST" class="sign-up-log-in-all">
+      <div>
+        <label> Name
+          <input type="text" name="name" placeholder="Peter..." />
+        </label>
+      </div>
 
-      <label> Last Name
-        <input type="text" name="lastname" placeholder="Smith..." />
-      </label>
+      <div>
+        <label> Last Name
+          <input type="text" name="lastname" placeholder="Smith..." />
+        </label>
+      </div>
 
-      <label> Email
-        <input type="text" name="email" placeholder="ironhacker@gmail.com" />
-      </label>
+
+      <div>
+        <label> Email
+          <input type="text" name="email" placeholder="ironhacker@gmail.com" />
+        </label>
+      </div>
+
   
-      <label> Password
-        <input type="password" name="password" placeholder="********" />
-      </label>
+      <div>
+        <label> Password
+          <input type="password" name="password" placeholder="********" />
+        </label>
+      </div>
+
+      <div>
+        <button type="submit">Sign-up</button>
+      </div>
   
-      <button type="submit">Sign-up</button>
-  
-      <% if(errorMessage) { %>
-      <p class="error" style="color: red;"><%= errorMessage %></p>
-      <% } %>
+      <div>
+        <% if(errorMessage) { %>
+        <p class="error" style="color: red;"><%= errorMessage %></p>
+        <% } %>
+      </div>
+
     </form>
   </div>
   

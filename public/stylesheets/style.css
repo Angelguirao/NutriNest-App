@@ -59,9 +59,6 @@ a {
   max-width: 200px;
 }
 
-
-
-
 .rightContainer form {
   display: flex;
   flex-direction: column;
@@ -69,4 +66,31 @@ a {
   padding: 10px;
   margin: 10px;
   border: solid black 1px;
+}
+
+
+/***** PROFILE & SETTINGS PAGE *******/
+.img-info-profile-settings {
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  margin: auto;
+  width: 50%;
+}
+
+#image-profile-settings{
+  width: 400px;
+  height: auto;
+  
+}
+
+/***** SIGN-UP & LOG-IN PAGE *******/
+.sign-up-log-in-all {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  text-align: center;
+  align-items: left;
+  width: 25%;
+
 }

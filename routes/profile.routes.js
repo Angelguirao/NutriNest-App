@@ -26,10 +26,13 @@ router.get('/settings', isLoggedIn, async (req, res) => {
 
 router.post('/', uploader.single("img"), async (req, res) => {
   const newUser = req.body;
-  newUser.img = req.file.path;
   let mongoUser = await User.findById(req.session.user._id);
   
-    try {
+  if (req.file.path) {
+    newUser.img = req.file.path;
+  }
+
+  try {
       if (mongoUser) {
         mongoUser.name = newUser.name || mongoUser.name;
         mongoUser.lastname = newUser.lastname || mongoUser.lastname;

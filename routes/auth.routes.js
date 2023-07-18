@@ -69,7 +69,7 @@ router.post("/log-in", isLoggedOut, async (req, res) => {
                 const loggedUser = {...checkedUser._doc}
                 delete loggedUser.hashedPassword;
                 req.session.user = loggedUser; 
-                res.redirect("/ingredients");
+                res.redirect("ingredients");
             } else {
                 // If User exists but Password does not match
                 console.log("Password is incorrect");

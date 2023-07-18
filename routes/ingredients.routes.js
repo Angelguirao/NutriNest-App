@@ -28,6 +28,26 @@ router.post('/', uploader.single('photo'), async(req, res) => {
     
 })
 
+// Search Form
+router.get('/search', async (req, res) => {
+    res.render("ingredients/search-results")
+})
+
+router.post('/search', async (req, res) => {
+    console.log(req.body)
+    const {name} = req.body
+
+    try {
+        const searchedIngredient = await Ingredient.findOne({name})
+        res.render('ingredients/search-results', {searchedIngredient})
+
+    }
+    catch(err) {console.log(err)}
+} )
+
+
+
+
 router.get('/:ingredientId', isLoggedIn, async(req, res) => {
     const ingredientId = req.params.ingredientId;
     try {
@@ -50,5 +70,11 @@ router.post('/:ingredientId/delete', async (req, res, next) => {
     }
   })
 
+  
+
+
+
 
 module.exports = router;
+
+

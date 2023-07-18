@@ -1,11 +1,11 @@
 
 <h1>Ingredients</h1>
 
-<div class="container">
-    <div class="leftContainer">
+<div class="container-ingredients">
+    <div class="leftContainer-ingredients">
         <% allIngredients.forEach(ingredient => { %>
-            <div class="ingredientCard">
-                <h2><a href="/ingredients/<%= ingredient._id %>">Name: <%= ingredient.name  %></a> </h2>
+            <div class="ingredientCard-ingredients">
+                <h2><a href="/ingredients/<%= ingredient._id %>"> <%= ingredient.name  %></a> </h2>
                 <img src="<%= ingredient.photo %>" />
                 <h3>Kcal / 100g : <%= ingredient.kcal100g  %> </p>
                 <h3>Macros / 100g :</h3>
@@ -20,7 +20,8 @@
         <% }) %>
     </div>
 
-    <div class="rightContainer">
+    <div class="rightContainer-ingredients">
+        <h2>Add Your Own Ingredients</h2>
         <div class="form">
             <form action="/ingredients" method="POST" enctype="multipart/form-data">
                 <label for="name">Name:</label>

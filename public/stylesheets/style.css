@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Ubuntu, Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 }
 h1, h2, h3, h4, h5, p, ul, li {
   margin: 0;
@@ -24,24 +24,24 @@ a {
 
 
 /* Ingredients page */
-.container {
+.container-ingredients {
   display: flex;
   flex-direction: row;
   margin: 20px;
 }
 
-.leftContainer {
+.leftContainer-ingredients {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 60vw;
 }
 
-.rightContainer {
+.rightContainer-ingredients {
   width: 30vw;
 }
 
-.ingredientCard {
+.ingredientCard-ingredients {
   border: 1px solid black;
   margin: 1rem;
   padding: 1rem;
@@ -52,16 +52,13 @@ a {
   align-items: center;
 }
 
-.ingredientCard img {
+.ingredientCard-ingredients img {
   height: 150px;
   width: auto;
   max-width: 200px;
 }
 
-
-
-
-.rightContainer form {
+.rightContainer-ingredients form {
   display: flex;
   flex-direction: column;
   align-items: center;

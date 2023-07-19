@@ -43,7 +43,7 @@ router.post('/search', async (req, res) => {
         if(searchedIngredient) {
             console.log(searchedIngredient)
         res.render('ingredients/search-results', {searchedIngredient})
-        } else {res.render('ingredients/search-results', {error: "This ingridient doesn't exist"})}
+        } else {res.render('ingredients/search-results', {error: "This ingridient doesn't exist, you oversized baboon"})}
 
     }
     catch(err) {console.log(err)}

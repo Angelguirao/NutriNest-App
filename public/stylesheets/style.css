@@ -610,9 +610,10 @@ a {
     margin-top: 20px;
 }
 
+/* Error message */
 .search-form p {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 500;
   color: red;
 }
 
@@ -623,17 +624,19 @@ a {
 
 /* LAYOUT */
 nav {
-  height: 100px;
+  height: 80px;
   background-color: #45a049;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 2px -2px gray;
 }
 
 nav ul {
   display: flex;
   gap: 50px;
   justify-content: space-between;
+  align-items: center;
 }
 
 nav li {
@@ -645,7 +648,8 @@ nav li {
 nav li a {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 /* Dropdown menu */
@@ -791,11 +795,6 @@ nav li a {
   margin-bottom: 2rem;
 }
 
-.profile-photo {
-  display: flex;
-  flex-direction: column;
-}
-
 .profile-photo  {
   display: flex;
   flex-direction: column;
@@ -804,3 +803,15 @@ nav li a {
 }
 
 
+/* SETTINGS */
+
+.settings-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}

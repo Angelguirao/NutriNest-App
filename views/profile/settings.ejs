@@ -1,35 +1,35 @@
-<div id="form">
+<div class="profile-container">
   <h2>Login</h2>
-  <main class="img-info-profile-settings">
-    <section id="img-profile">
+  <main>
+    <section class="profile-photo">
       <form action="/profile" method="POST" enctype="multipart/form-data">
           <img class="image-profile-settings" src="<%= user.img %>" alt="profile-image">
       </form>
     </section>
 
-    <section id="info-profile">
+    <section class="info-profile">
       <form action="/profile/settings" method="POST">
         <div>
-          <label> Email: </label>
+          <label class="recipe-label"> Email: </label>
           <%= user.email %>
         </div>
         <div>
-          <input type="text" name="email" placeholder="Enter new email..." />
-          <button type="submit">Save</button>
+          <input class="recipe-input" type="text" name="email" placeholder="Enter new email..." />
+          <button class="settings-button" type="submit">Save</button>
         </div>
       </form>
 
       <form action="/profile/settings" method="POST">
 
         <div>
-          <label> Password: </label>
+          <label class="recipe-label"> Password: </label>
         </div>
         <div>
-          <input type="password" name="current_password" placeholder="Enter Current Password..." />
+          <input class="recipe-input" type="password" name="current_password" placeholder="Enter Current Password..." />
         </div>
         <div>
-          <input type="password" name="new_password" placeholder="Enter New Password..." />
-          <button type="submit">Save</button>
+          <input class="recipe-input" type="password" name="new_password" placeholder="Enter New Password..." />
+          <button class="settings-button" type="submit">Save</button>
         </div>
       </form>
 

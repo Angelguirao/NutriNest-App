@@ -7,7 +7,7 @@
                         <img id="profile-image" src="<%= user.img %>" alt="profile-image">
                         <input type="file" name="img" id="image-upload" accept="image/jpg, image/png" class="recipe-input">
                     </label>
-                    <button type="submit" class="form-button">Save</button>
+                    <button type="submit" class="settings-button">Save</button>
                     <% if(errorMessage) { %>
                         <p class="error" style="color: red;"><%= errorMessage %></p>
                     <% } %>
@@ -22,7 +22,7 @@
                         <span><%= user.name %></span>
                         <input type="text" name="name" placeholder="Change name..." class="recipe-input"/>
                     </label>
-                    <button type="submit" class="form-button">Save</button>
+                    <button type="submit" class="settings-button">Save</button>
                     <% if(errorMessage) { %>
                         <p class="error" style="color: red;"><%= errorMessage %></p>
                     <% } %> 
@@ -33,7 +33,7 @@
                         <span><%= user.lastname %></span>
                         <input type="text" name="lastname" placeholder="Change last name..." class="recipe-input"/>
                     </label>
-                    <button type="submit" class="form-button">Save</button>
+                    <button type="submit" class="settings-button">Save</button>
                     <% if(errorMessage) { %>
                         <p class="error" style="color: red;"><%= errorMessage %></p>
                     <% } %>    
@@ -44,7 +44,7 @@
                         <span><%= user.age %></span>
                         <input type="number" name="age"  placeholder="Change age..." class="recipe-input"/>
                     </label>
-                    <button type="submit" class="form-button">Save</button>
+                    <button type="submit" class="settings-button">Save</button>
                     <% if(errorMessage) { %>
                         <p class="error" style="color: red;"><%= errorMessage %></p>
                     <% } %>
@@ -58,7 +58,7 @@
                         <option value="female">Female</option>
                         <option value="other">Other</option>
                     </select>
-                    <button type="submit" class="form-button">Save</button>      
+                    <button type="submit" class="settings-button">Save</button>      
                     <% if(errorMessage) { %>
                         <p class="error" style="color: red;"><%= errorMessage %></p>
                     <% } %>
@@ -69,7 +69,7 @@
                         <span><%= user.weight %></span>
                         <input type="number" name="weight" placeholder="Change weight..." class="recipe-input"/>
                     </label>
-                    <button type="submit" class="form-button">Save</button>
+                    <button type="submit" class="settings-button">Save</button>
                     <% if(errorMessage) { %>
                         <p class="error" style="color: red;"><%= errorMessage %></p>
                     <% } %>
@@ -80,7 +80,7 @@
                         <span><%= user.height %></span>
                         <input type="number" name="height" placeholder="Change height..." class="recipe-input"/>
                     </label>
-                    <button type="submit" class="form-button">Save</button>
+                    <button type="submit" class="settings-button">Save</button>
                     <% if(errorMessage) { %>
                         <p class="error" style="color: red;"><%= errorMessage %></p>
                     <% } %>
@@ -91,7 +91,7 @@
                     <span><%= user.description %></span>
                     <textarea name="description" placeholder="Change description..." rows="2" cols="60"></textarea>
                 </label>
-                <button type="submit" class="form-button">Save</button>
+                <button type="submit" class="settings-button">Save</button>
                 <% if(errorMessage) { %>
                     <p class="error" style="color: red;"><%= errorMessage %></p>
                 <% } %>

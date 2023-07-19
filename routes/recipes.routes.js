@@ -68,7 +68,6 @@ router.get('/:recipeId/update', async (req, res, next) => {
   /* POST updated recipe data */
   router.post('/:recipeId/update', uploader.single('photo'), async (req, res, next) => {
     console.log(req.body, req.params)
-    const photo = req.file.path;
 
     try {
       await Recipe.findByIdAndUpdate(req.params.recipeId, req.body)

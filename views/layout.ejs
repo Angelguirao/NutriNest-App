@@ -10,7 +10,7 @@
 
   <body>
     <nav>
-      <ul style="list-style: none; display: flex; gap: 25px">
+      <ul>
         <li>
           <a href="/ingredients">Ingredients</a>
         </li>
@@ -18,11 +18,17 @@
           <a href="/recipes">Recipes</a>
         </li>
         <li>
+          <a href="/ingredients/search">Search Results</a>
+        </li>
+        <li>
+          <a href="/recipes/new">New Recipe</a>
+        </li>
+        <li class="dropdown">
           <select onchange="window.location.href=this.value">
-            <option value="/"> User Information </option>
-            <option value="/profile">My Profile</option>
-            <option value="/profile/settings">Settings</option>
-            <option value="/log-out">Log-out</option>
+            <option value="/"><p>User</p></option>
+            <option value="/profile"><p>My profile</p></option>
+            <option value="/profile/settings"><p>Settings</p></option>
+            <option value="/log-out"><p>Log-out</p></option>
           </select>
         </li>
       </ul>

@@ -38,6 +38,14 @@ a {
   margin-left: 3rem;
 }
 
+.ingredient-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    list-style: none;
+    padding: 0;
+  
+}
 
 .ingredientCard-ingredients {
   border: 2px solid #969a9b;
@@ -73,28 +81,24 @@ a {
 
 
 .ingredientCard-ingredients {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+  border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
 }
 
-.ingredientCard-ingredients:hover {
-  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
-}
+
 
 
 /* FORM */
 .rightContainer-ingredients {
-  width: 40vw;
+  width: 30vw;
 }
 
-.rightContainer form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
-  border: solid black 1px;
-}
+
 
 /* All Recipes page */
 
@@ -414,6 +418,53 @@ a {
   width: 500px;
 }
 
+.right-side-container {
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ingredient-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.ingredient-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.ingredient-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.ingredient-submit-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ingredient-submit-button:hover {
+  background-color: #45a049;
+}
+----------------------------
+
 .rightContainer-ingredients button {
   padding: 0.5rem 2rem;
   font-size: 1rem;
@@ -468,6 +519,7 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #f2f2f2;
 }
 
 .container-single-ingredient h1 {
@@ -481,10 +533,6 @@ a {
 
 .container-single-ingredient h3 {
   margin-bottom: 0.5rem;
-}
-
-.container-single-ingredient:hover {
-  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
 }
 
 .container-single-ingredient img {
@@ -504,18 +552,20 @@ a {
   color: black
 }
 
-.container-single-ingredient button {
-  padding: 0.5rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+.form-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* SEARCH INGREDIENTS */
 .page-container-search {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -551,11 +601,14 @@ a {
 }
 
 .search-form button {
-  padding: 0.5rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 .search-form p {
@@ -565,6 +618,47 @@ a {
 }
 
 
+
+
+
+
+/* LAYOUT */
+nav {
+  height: 100px;
+  background-color: #45a049;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+nav li {
+  list-style: none;
+  color: white;
+  
+}
+
+nav li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+/* Dropdown menu */
+.dropdown select {
+  font-size: 20px;
+  background-color: #f2f2f2;
+}
+
+
+
+
+/* style="list-style: none; display: flex; gap: 25px" */
 /***** PROFILE & SETTINGS PAGE *******/
 .img-info-profile-settings {
   display: flex;

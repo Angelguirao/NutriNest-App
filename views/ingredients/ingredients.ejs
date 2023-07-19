@@ -1,8 +1,8 @@
 
-<h1 class="title">Ingredients</h1>
+<h1 class="all-recipes-heading">Ingredients</h1>
 
 <div class="container-ingredients">
-    <div class="leftContainer-ingredients">
+    <div class="ingredient-list">
         <% allIngredients.forEach(ingredient => { %>
             <div class="ingredientCard-ingredients">
                 <h2><a href="/ingredients/<%= ingredient._id %>"> <%= ingredient.name  %></a> </h2>
@@ -20,30 +20,31 @@
         <% }) %>
     </div>
 
-    <div class="rightContainer-ingredients">
+    
+    <div class="right-side-container">
 
         <h2>Add Your Own Ingredients</h2>
-        <div class="form">
+        <div class="ingredient-form-container">
             <form action="/ingredients" method="POST" enctype="multipart/form-data">
-                <label for="name">Name:</label>
-                <input type="text" name="name" >
+                <label for="name" class="ingredient-label">Name:</label>
+                <input type="text" name="name" class="ingredient-input">
               
-                <label for="photo">Photo:</label>
-                <input type="file" name="photo" accept="image/png, image/jpg">
+                <label for="photo" class="ingredient-label">Photo:</label>
+                <input type="file" name="photo" accept="image/png, image/jpg" class="ingredient-input">
               
-                <label for="kcal100g">Calories per 100g:</label>
-                <input type="number" name="kcal100g" required>
+                <label for="kcal100g" class="ingredient-label">Calories per 100g:</label>
+                <input type="number" name="kcal100g" required class="ingredient-input">
               
-                <label for="protein">Protein per 100g:</label>
-                <input type="number" name="protein" required>
+                <label for="protein" class="ingredient-label">Protein per 100g:</label>
+                <input type="number" name="protein" required class="ingredient-input">
               
-                <label for="carbs">Carbs per 100g:</label>
-                <input type="number" name="carbs" required>
+                <label for="carbs" class="ingredient-label">Carbs per 100g:</label>
+                <input type="number" name="carbs" required class="ingredient-input">
               
-                <label for="fat">Fat per 100g:</label>
-                <input type="number" name="fat" required>
+                <label for="fat" class="ingredient-label">Fat per 100g:</label>
+                <input type="number" name="fat" required class="ingredient-input">
               
-                <button type="submit">Add Ingredient</button>
+                <button type="submit" class="ingredient-submit-button">Add Ingredient</button>
               </form>
         </div>
     </div>

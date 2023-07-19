@@ -6,7 +6,6 @@ const uploader = require('../config/cloudinary.config.js')
 const {isLoggedIn} = require('../middlewares/route-guard-middleware')
 
 
-//METER FAVORITOS AQUÍ
 
 router.get('/', isLoggedIn, async (req, res, next) => {
     try {
@@ -67,11 +66,12 @@ router.get('/:recipeId/update', async (req, res, next) => {
   
 
   /* POST updated recipe data */
-  router.post('/:recipeId/update', async (req, res, next) => {
+  router.post('/:recipeId/update', uploader.single('photo'), async (req, res, next) => {
     console.log(req.body, req.params)
+    const photo = req.file.path;
+
     try {
       await Recipe.findByIdAndUpdate(req.params.recipeId, req.body)
-      .populate('ingredients')
       res.redirect(`/recipes/${req.params.recipeId}`)
     } catch (error) {
       console.log(error)

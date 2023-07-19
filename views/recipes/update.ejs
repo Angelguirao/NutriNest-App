@@ -2,12 +2,13 @@
 <h1 class="recipe-update-heading">Update Recipe</h1>
 
 <div class="recipe-update-form-container">
-  <form method="POST" action="/recipes/<%- recipe._id %>/update">
+  <form method="POST" action="/recipes/<%- recipe._id %>/update" enctype="multipart/form-data">
     <label for="recipe-update-name" class="recipe-update-label">Name:</label>
     <input type="text" id="recipe-update-name" name="name" value="<%= recipe.name %>" class="recipe-update-input">
 
     <label for="recipe-update-photo" class="recipe-update-label">Photo:</label>
-    <input type="file" id="recipe-update-photo" name="photo" accept="image/*" class="recipe-update-input">
+    <input type="file" id="recipe-update-photo" name="photo" accept="image/jpg image/png" class="recipe-update-input" value="<%= recipe.photo %>">
+
 
     <label for="recipe-update-ingredients" class="recipe-update-label">Ingredients:</label>
     <select name="ingredients" id="recipe-update-ingredients" multiple required class="recipe-update-input">

@@ -51,7 +51,6 @@ a {
   border: 2px solid #969a9b;
   border-radius: 5px;
   margin: 1rem;
-  padding: 1rem;
   width: 20rem;
   height: auto;
   display: flex;
@@ -133,6 +132,7 @@ a {
     font-size: 18px;
     margin-bottom: 10px;
     font-weight: bold;
+    text-align: center;
   }
 
   /* Style for the recipe image */
@@ -181,9 +181,10 @@ a {
   /* Style for the all recipes heading */
   .all-recipes-heading {
     text-align: center;
-    font-size: 24px;
+    font-size: 50px;
     margin-bottom: 20px;
     color: #4caf50;
+    margin-top: 40px;
   }
 
 /* New Recipe page */
@@ -394,8 +395,6 @@ a {
 .recipe-update-submit-button:hover {
   background-color: #45a049;
 }
-
-
 
 
 .rightContainer-ingredients h2 {
@@ -681,9 +680,9 @@ nav li a {
 
 .log-in-container {
   max-width: 400px;
-  height: 400px;
+  height: auto;
   margin: 80px auto;
-  padding: 20px;
+  padding: 60px 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -701,7 +700,7 @@ nav li a {
 
 .log-in-container h2 {
   font-size: 2.5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
 }
 
 .log-in label {
@@ -710,9 +709,15 @@ nav li a {
   margin-bottom: 1rem;
 }
 
-.log-in input {
+.log-in-input {
   font-size: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .form-button {

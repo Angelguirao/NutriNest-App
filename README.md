@@ -17,7 +17,7 @@ This project is a web application that allows users to manage recipes and ingred
 - `View Recipe Details` - As a user, I want to view the details of a specific recipe, including the list of ingredients and nutritional information, so that I can decide if I want to try the recipe.
 - `Update Recipe` - As a user, I want to be able to update my existing recipes, including changing ingredients and instructions, so that I can keep my recipes up-to-date.
 - `Delete Recipe` - As a user, I want to be able to delete recipes that I no longer need or want to share with others.
-- `User Profiles` - As a user, I want to be able to add additional information to my profile such as  bio, profile picture, and a list of recipes created.
+- `View my profile` - As a user, I want to be able to add additional information to my profile such as  bio, profile picture, and a list of recipes created.
 - `404` - As a user, I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
 - `500` - As a user, I want to see a nice error page when the application encounters an internal server error so that I know that it's not my fault.
 

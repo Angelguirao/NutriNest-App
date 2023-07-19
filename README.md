@@ -231,7 +231,7 @@ This project is a web application that allows users to manage recipes and ingred
 
 ### Trello
 
-[Link to your trello board](https://trello.com/b/9mx4HkRl/project-2)
+[Trello board](https://trello.com/b/9mx4HkRl/project-2)
 
 ### Slides
 

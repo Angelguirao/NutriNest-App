@@ -8,9 +8,7 @@
                         <input type="file" name="img" id="image-upload" accept="image/jpg, image/png" class="recipe-input">
                     </label>
                     <button type="submit" class="settings-button">Save</button>
-                    <% if(errorMessage) { %>
-                        <p class="error" style="color: red;"><%= errorMessage %></p>
-                    <% } %>
+                    
                 </form>
             </section>
     
@@ -23,9 +21,7 @@
                         <input type="text" name="name" placeholder="Change name..." class="recipe-input"/>
                     </label>
                     <button type="submit" class="settings-button">Save</button>
-                    <% if(errorMessage) { %>
-                        <p class="error" style="color: red;"><%= errorMessage %></p>
-                    <% } %> 
+                    
                 </form>
             
                 <form action="/profile" method="POST">
@@ -34,9 +30,7 @@
                         <input type="text" name="lastname" placeholder="Change last name..." class="recipe-input"/>
                     </label>
                     <button type="submit" class="settings-button">Save</button>
-                    <% if(errorMessage) { %>
-                        <p class="error" style="color: red;"><%= errorMessage %></p>
-                    <% } %>    
+                       
                 </form>
             
                 <form action="/profile" method="POST">
@@ -45,9 +39,7 @@
                         <input type="number" name="age"  placeholder="Change age..." class="recipe-input"/>
                     </label>
                     <button type="submit" class="settings-button">Save</button>
-                    <% if(errorMessage) { %>
-                        <p class="error" style="color: red;"><%= errorMessage %></p>
-                    <% } %>
+                    
                 </form>
                 
                 <form action="/profile" method="POST">
@@ -59,9 +51,7 @@
                         <option value="other">Other</option>
                     </select>
                     <button type="submit" class="settings-button">Save</button>      
-                    <% if(errorMessage) { %>
-                        <p class="error" style="color: red;"><%= errorMessage %></p>
-                    <% } %>
+                    
                 </form>
                 
                 <form action="/profile" method="POST">
@@ -70,9 +60,7 @@
                         <input type="number" name="weight" placeholder="Change weight..." class="recipe-input"/>
                     </label>
                     <button type="submit" class="settings-button">Save</button>
-                    <% if(errorMessage) { %>
-                        <p class="error" style="color: red;"><%= errorMessage %></p>
-                    <% } %>
+                   
                 </form>
             
                 <form action="/profile" method="POST">
@@ -81,9 +69,7 @@
                         <input type="number" name="height" placeholder="Change height..." class="recipe-input"/>
                     </label>
                     <button type="submit" class="settings-button">Save</button>
-                    <% if(errorMessage) { %>
-                        <p class="error" style="color: red;"><%= errorMessage %></p>
-                    <% } %>
+                    
                 </form>
             </section>
             <form action="/profile" method="POST">
@@ -92,13 +78,17 @@
                     <textarea name="description" placeholder="Change description..." rows="2" cols="60"></textarea>
                 </label>
                 <button type="submit" class="settings-button">Save</button>
+               
+            </form>
+            <div>
                 <% if(errorMessage) { %>
                     <p class="error" style="color: red;"><%= errorMessage %></p>
                 <% } %>
-            </form>
-        
+            </div>
+            
     
     </main>
 
    
 </div>
+

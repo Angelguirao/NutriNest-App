@@ -1,100 +1,104 @@
-<div id="form">
+<div class="profile-container">
     <h2>My Profile</h2>
-    <main class="img-info-profile-settings">
-        <section id="img-profile">
-            <form action="/profile" method="POST", enctype="multipart/form-data">
-                <label>
-                    <img id="profile-image" src="<%= user.img %>" alt="profile-image">
-                    <input type="file" name="img" id="image-upload" accept="image/jpg, image/png">
-                </label>
-                <button type="submit">Save</button>
-                <% if(errorMessage) { %>
-                    <p class="error" style="color: red;"><%= errorMessage %></p>
-                <% } %>
-            </form>
-        </section>
+    <main>
+            <section class="profile-photo">
+                <form action="/profile" method="POST", enctype="multipart/form-data">
+                    <label class="recipe-label">
+                        <img id="profile-image" src="<%= user.img %>" alt="profile-image">
+                        <input type="file" name="img" id="image-upload" accept="image/jpg, image/png" class="recipe-input">
+                    </label>
+                    <button type="submit" class="form-button">Save</button>
+                    <% if(errorMessage) { %>
+                        <p class="error" style="color: red;"><%= errorMessage %></p>
+                    <% } %>
+                </form>
+            </section>
     
-        <section id="info-profile">
 
-            <form action="/profile" method="POST">
-                <label> Name:
-                    <span><%= user.name %></span>
-                    <input type="text" name="name" placeholder="Change name..." />
-                </label>
-                <button type="submit">Save</button>
-                <% if(errorMessage) { %>
-                    <p class="error" style="color: red;"><%= errorMessage %></p>
-                <% } %> 
-            </form>
-        
-            <form action="/profile" method="POST">
-                <label> Last name:
-                    <span><%= user.lastname %></span>
-                    <input type="text" name="lastname" placeholder="Change last name..." />
-                </label>
-                <button type="submit">Save</button>
-                <% if(errorMessage) { %>
-                    <p class="error" style="color: red;"><%= errorMessage %></p>
-                <% } %>    
-            </form>
-        
-            <form action="/profile" method="POST">
-                <label> Age:
-                    <span><%= user.age %></span>
-                    <input type="number" name="age"  placeholder="Change age..." />
-                </label>
-                <button type="submit">Save</button>
-                <% if(errorMessage) { %>
-                    <p class="error" style="color: red;"><%= errorMessage %></p>
-                <% } %>
-            </form>
+            <section class="info-profile">
+
+                <form action="/profile" method="POST">
+                    <label class="recipe-label"> Name:
+                        <span><%= user.name %></span>
+                        <input type="text" name="name" placeholder="Change name..." class="recipe-input"/>
+                    </label>
+                    <button type="submit" class="form-button">Save</button>
+                    <% if(errorMessage) { %>
+                        <p class="error" style="color: red;"><%= errorMessage %></p>
+                    <% } %> 
+                </form>
             
-            <form action="/profile" method="POST">
-                <label for="cast">Gender:</label>
-                <span><%= user.gender %></span>
-                <select name="gender" id="cast">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-                <button type="submit">Save</button>      
-                <% if(errorMessage) { %>
-                    <p class="error" style="color: red;"><%= errorMessage %></p>
-                <% } %>
-            </form>
+                <form action="/profile" method="POST">
+                    <label class="recipe-label"> Last name:
+                        <span><%= user.lastname %></span>
+                        <input type="text" name="lastname" placeholder="Change last name..." class="recipe-input"/>
+                    </label>
+                    <button type="submit" class="form-button">Save</button>
+                    <% if(errorMessage) { %>
+                        <p class="error" style="color: red;"><%= errorMessage %></p>
+                    <% } %>    
+                </form>
             
+                <form action="/profile" method="POST">
+                    <label class="recipe-label"> Age:
+                        <span><%= user.age %></span>
+                        <input type="number" name="age"  placeholder="Change age..." class="recipe-input"/>
+                    </label>
+                    <button type="submit" class="form-button">Save</button>
+                    <% if(errorMessage) { %>
+                        <p class="error" style="color: red;"><%= errorMessage %></p>
+                    <% } %>
+                </form>
+                
+                <form action="/profile" method="POST">
+                    <label class="recipe-label" for="cast">Gender:</label>
+                    <span><%= user.gender %></span>
+                    <select name="gender" id="cast">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button type="submit" class="form-button">Save</button>      
+                    <% if(errorMessage) { %>
+                        <p class="error" style="color: red;"><%= errorMessage %></p>
+                    <% } %>
+                </form>
+                
+                <form action="/profile" method="POST">
+                    <label class="recipe-label"> Weight (kg):
+                        <span><%= user.weight %></span>
+                        <input type="number" name="weight" placeholder="Change weight..." class="recipe-input"/>
+                    </label>
+                    <button type="submit" class="form-button">Save</button>
+                    <% if(errorMessage) { %>
+                        <p class="error" style="color: red;"><%= errorMessage %></p>
+                    <% } %>
+                </form>
+            
+                <form action="/profile" method="POST">
+                    <label class="recipe-label"> Height (cm):
+                        <span><%= user.height %></span>
+                        <input type="number" name="height" placeholder="Change height..." class="recipe-input"/>
+                    </label>
+                    <button type="submit" class="form-button">Save</button>
+                    <% if(errorMessage) { %>
+                        <p class="error" style="color: red;"><%= errorMessage %></p>
+                    <% } %>
+                </form>
+            </section>
             <form action="/profile" method="POST">
-                <label> Weight (kg):
-                    <span><%= user.weight %></span>
-                    <input type="number" name="weight" placeholder="Change weight..." />
+                <label class="recipe-label"> Description:
+                    <span><%= user.description %></span>
+                    <textarea name="description" placeholder="Change description..." rows="2" cols="60"></textarea>
                 </label>
-                <button type="submit">Save</button>
+                <button type="submit" class="form-button">Save</button>
                 <% if(errorMessage) { %>
                     <p class="error" style="color: red;"><%= errorMessage %></p>
                 <% } %>
             </form>
         
-            <form action="/profile" method="POST">
-                <label> Height (cm):
-                    <span><%= user.height %></span>
-                    <input type="number" name="height" placeholder="Change height..." />
-                </label>
-                <button type="submit">Save</button>
-                <% if(errorMessage) { %>
-                    <p class="error" style="color: red;"><%= errorMessage %></p>
-                <% } %>
-            </form>
-        </section>
+    
     </main>
 
-    <form action="/profile" method="POST">
-        <label> Description:
-            <span><%= user.description %></span>
-            <textarea name="description" placeholder="Change description..." rows="2" cols="60"></textarea>
-        </label>
-        <button type="submit">Save</button>
-        <% if(errorMessage) { %>
-            <p class="error" style="color: red;"><%= errorMessage %></p>
-        <% } %>
-    </form>
+   
 </div>

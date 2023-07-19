@@ -770,3 +770,37 @@ nav li a {
 }
 
 
+/* PROFILE */
+
+.profile-container {
+  max-width: 900px;
+  height: auto;
+  margin: 80px auto;
+  padding: 80px 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-container h2 {
+  font-size: 3.4rem;
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-photo  {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+
+}
+
+

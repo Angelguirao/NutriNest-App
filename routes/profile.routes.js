@@ -26,12 +26,11 @@ router.get('/settings', isLoggedIn, async (req, res) => {
 
 router.post('/', uploader.single("img"), async (req, res) => {
   const newUser = req.body;
+  if (req.file) {
+    newUser.img = req.file.path;
+  }  
   let mongoUser = await User.findById(req.session.user._id);
   
-  if (req.file.path) {
-    newUser.img = req.file.path;
-  }
-
   try {
       if (mongoUser) {
         mongoUser.name = newUser.name || mongoUser.name;
@@ -52,8 +51,12 @@ router.post('/', uploader.single("img"), async (req, res) => {
     }
 });
 
-router.post('/settings', async (req, res) => {
+router.post('/settings', uploader.single("img"), async (req, res) => {
   const newUser = req.body;
+  if (req.file) {
+    newUser.img = req.file.path;
+  }
+
   let mongoUser = await User.findById(req.session.user._id);
   console.log(newUser);
 

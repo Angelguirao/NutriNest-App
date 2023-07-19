@@ -5,19 +5,15 @@ body {
   box-sizing: border-box;
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 }
+
 h1, h2, h3, h4, h5, p, ul, li {
   margin: 0;
   padding: 0;
 }
 
-
-
 a {
   color: #00b7ff;
 }
-
-
-
 
 /* Ingredients page */
 .container-ingredients {

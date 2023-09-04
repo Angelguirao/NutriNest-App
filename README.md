@@ -1,4 +1,4 @@
-# Ironhack-Project2-Nutrition
+# NutriNest App
 
 ## [See the App!](https://ironhack-project2.adaptable.app/)
 

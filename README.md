@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/Angelguirao/NutriNest-App/assets/44321245/ce63a953-9cb7-4615-834b-8d8f0bdbfaa7" alt="Home">
+</p>
+
 # NutriNest App
 
 ## [See the App!](https://ironhack-project2.adaptable.app/)
